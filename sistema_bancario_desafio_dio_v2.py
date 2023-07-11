@@ -20,6 +20,7 @@ desafio:
         criar função main:
             deve conter o menu de opções;
 '''
+
 import time
 
 # Variáveis globais
@@ -30,7 +31,6 @@ saldo = 0
 extrato = []
 usuarios = {}
 contas_bancarias = {}
-
 
 def menu():
     menu = """
@@ -50,6 +50,7 @@ def menu():
 
 
 def deposito(valor_deposito, /):
+    # Função para realizar um depósito na conta
     global saldo, extrato
 
     if valor_deposito > 0:
@@ -64,6 +65,7 @@ def deposito(valor_deposito, /):
 
 
 def saque(*, valor_saque):
+    # Função para realizar um saque da conta
     global saldo, extrato, numero_saque_feito
 
     if saldo > 0:
@@ -85,6 +87,7 @@ def saque(*, valor_saque):
 
 
 def exibir_extrato(saldo, /, *, extrato):
+    # Função para exibir o extrato da conta
     print("\nExtrato:")
     for transacao in extrato:
         tipo = transacao["Tipo"]
@@ -95,6 +98,7 @@ def exibir_extrato(saldo, /, *, extrato):
 
 
 def listar_usuarios():
+    # Função para listar os usuários cadastrados
     print("\nLista de usuários:")
     for cpf, usuario in usuarios.items():
         print(f"CPF: {cpf}")
@@ -111,6 +115,7 @@ def listar_usuarios():
 
 
 def cadastrar_usuario():
+    # Função para cadastrar um novo usuário
     while True:
         nome = input("Digite o nome do usuário: ")
         cpf = input("Digite o CPF do usuário (somente números): ")
@@ -180,6 +185,7 @@ def cadastrar_usuario():
 
 
 def cadastrar_conta_bancaria():
+    # Função para cadastrar uma nova conta bancária para um usuário
     cpf = input("Digite o CPF do usuário para cadastrar a conta bancária: ")
 
     # Verificar se o usuário existe no sistema
@@ -203,6 +209,7 @@ def cadastrar_conta_bancaria():
 
 
 def main():
+    # Função principal que exibe o menu e gerencia as opções
     while True:
         opcao = menu()
 
